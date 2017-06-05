@@ -1,5 +1,12 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-    TODO: Realizr plantillas
+    <div class="row">
+    {%  for newsitem in news %}
+        <div class="col-lg-4 col-md-6">
+            <h2>{{ newsitem.title }}</h2>
+            {{ newsitem.description | safe | truncatewords_html:25}}
+        </div>
+    {% endfor %}
+    </div>
 {% endblock %}
